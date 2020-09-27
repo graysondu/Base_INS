@@ -1,4 +1,4 @@
-ins_version = 'v0.1.0';
+ins_version = 'v0.1.1';
 
 %% Constant Variable (for internal use)
 INS_CONST.dt = 0.002;   % step time in s
