@@ -1,3 +1,4 @@
+ins_version = 'v0.1.0';
 
 %% Constant Variable (for internal use)
 INS_CONST.dt = 0.002;   % step time in s
@@ -9,7 +10,7 @@ INS_CONST.wmm_inc = wmm.wmmgrid_inc_2019;
 
 %% Exported Value
 INS_EXPORT_VALUE.period = uint32(INS_CONST.dt*1e3); 
-INS_EXPORT_VALUE.model_info = int8(['Base INS', 0]); % 0 for end of string
+INS_EXPORT_VALUE.model_info = int8(['Base INS ',ins_version, 0]); % 0 for end of string
 
 INS_EXPORT = Simulink.Parameter(INS_EXPORT_VALUE);
 INS_EXPORT.CoderInfo.StorageClass = 'ExportedGlobal';
