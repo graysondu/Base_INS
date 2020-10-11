@@ -1,8 +1,12 @@
-ins_version = 'v0.1.1';
+model_version = 'v0.1.1';
+model_name = 'Base INS';
+
+%% Load configuration
+load('ins_default_config');
+wmm = load('wmmgrid_2019.mat');
 
 %% Constant Variable (for internal use)
 INS_CONST.dt = 0.002;   % step time in s
-% INS_CONST.period = INS_CONST.dt*1e3;   % period in ms
 INS_CONST.g = single(9.8055);   % gravity constant
 INS_CONST.wmm_mag = wmm.wmmgrid_mag_2019;
 INS_CONST.wmm_dec = wmm.wmmgrid_dec_2019;
@@ -10,7 +14,7 @@ INS_CONST.wmm_inc = wmm.wmmgrid_inc_2019;
 
 %% Exported Value
 INS_EXPORT_VALUE.period = uint32(INS_CONST.dt*1e3); 
-INS_EXPORT_VALUE.model_info = int8(['Base INS ',ins_version, 0]); % 0 for end of string
+INS_EXPORT_VALUE.model_info = int8([model_name, ' ', model_version, 0]); % 0 for end of string
 
 INS_EXPORT = Simulink.Parameter(INS_EXPORT_VALUE);
 INS_EXPORT.CoderInfo.StorageClass = 'ExportedGlobal';
