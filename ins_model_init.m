@@ -1,4 +1,4 @@
-model_version = 'v0.1.1';
+model_version = 'v0.1.2';
 model_name = 'Base INS';
 
 %% Load configuration
